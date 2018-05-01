@@ -1,0 +1,27 @@
+homeassistant:
+    name: Watson Demo
+    unit_system: metric
+    time_zone: America/New_York
+
+climate:
+    - platform: demo
+      name: House Climate
+
+weather:
+    - platform: demo
+
+light:
+    - name: Hallway Light
+      platform: demo
+    - name: Kitchen Light
+      platform: demo
+
+sensor:
+    - name: Doorbell
+      platform: demo
+
+watson_iot:
+    organization: organization_id
+    type: device_type
+    id: device_id
+    token: auth_token
