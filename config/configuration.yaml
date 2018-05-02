@@ -20,8 +20,8 @@ sensor:
     - name: Doorbell
       platform: demo
 
-watson_iot:
-    organization: organization_id
-    type: device_type
-    id: device_id
-    token: auth_token
+#watson_iot:
+#    organization: organization_id
+#    type: device_type
+#    id: device_id
+#    token: auth_token
