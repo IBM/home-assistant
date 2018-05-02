@@ -90,14 +90,14 @@ For more information about registering devices, see:
 Now that you've registered the device type and device in your Watson IoT
 platform instance it's time to configure Home Assistant to use it. In the sample
 home-assistant config in this repo at config/configuration.yaml you'll see the
-outline for this already, just commented out::
-
+outline for this already, just commented out:
+```yaml
     watson_iot:
         organization: organization_id
         type: device_type
         id: device_id
         token: auth_token
-
+```
 You'll want to uncomment this and copy the details you saved from the previous
 step into each of these values. By doing this you'll be enabling Home Assistant
 to report device status for every device it is configured to control or monitor.
