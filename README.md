@@ -57,11 +57,11 @@ For more information about registering devices, see:
   * In the IBM console, click **Launch** other Watson IoT Platform service
     details page.The Watson IoT Platform web console opens in a new browser tab
     at the following URL:
- ```
-      https://ORG_ID.internetofthings.ibmcloud.com/dashboard/#/overview
 
-      Where ORG_ID is the unique six character ID of [your Watson IoT Platform
-      [organization](https://console.bluemix.net/docs/services/IoT/iotplatform_overview.html#organizations).
+    https://ORG_ID.internetofthings.ibmcloud.com/dashboard/#/overview
+
+    Where ORG_ID is the unique six character ID of [your Watson IoT Platform
+    [organization](https://console.bluemix.net/docs/services/IoT/iotplatform_overview.html#organizations).
   * In the Overview dashboard, from the menu pane, select **Devices** and then
     click **Add Device**.
   * Create a device type for the device that you are adding.
