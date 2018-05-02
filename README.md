@@ -1,5 +1,55 @@
-# home-assistant
+# Connect your Home Automation system to Watson IoT Platform
 
+
+
+This is where the [Home Assistant](https://www.home-assistant.io/) project
+comes into play. Home assistant is open source home automation project. It's
+designed to be platform agnostic hub for all the different devices you may have
+in your home (or anywhere really) and provide a unified interface for
+interacting with all of those devices.
+
+
+## Setup Home Assistant
+
+To start we'll need to setup home assistant. The concept behind the project is
+that you run home assistant where the devices you want to connect are, in the
+common case this is in your house.
+
+There are several different ways to install and run home assistant. These are
+all covered in great depth in the home assistant documentation here:
+
+https://www.home-assistant.io/docs/installation/
+
+This guide will cover 2 methods for doing it for demonstration purposes, running locally in a python virtualenv and in IBM Cloud's Container Service.
+While you can use either technique to deploy a production Home Assistant
+instance, this guide will not cover configuring your own devices. It will only
+use the demo devices in the bundled configuration in the repo. Refer to the
+[home assistant documentation](ihttps://www.home-assistant.io/docs/configuration/)
+for how you want to configure it for your environment.
+
+### Local setup
+
+To setup a locally running home assistant in avirtual environment you'll need
+to setup a few prerequisites first. You'll have to have a python 3 environment
+installed already with a version >= 3.5 and pip must already be setup. Once
+this is done you can simply run:
+
+```
+./setup.sh
+```
+in a terminal from the root of this repo. It'll create a
+[virtualenv](https://docs.python.org/3/tutorial/venv.html) for Home Assistant
+copy the demo configuration into and start it for you. You can kill the script
+in your terminal to stop home assistant at any time, and the script will print
+the command you'll need to restart it if you stopped it for any reason.
+
+If after using the script you want to remove everything for some reason you
+can simply run:
+```
+./clean.sh
+```
+in a terminal from the root of this repo and it'll remove all artifacts from
+the script.
 
 ## Deploy Watson IoT Platform and Configure Home Assistant to Use It
 > Watson IoT Platform provides powerful application access to IoT devices and

@@ -1,0 +1,8 @@
+config/.HA_VERSION
+config/deps/
+config/home-assistant.log
+config/entity_registry.yaml
+home-assistant.log
+venv.log
+homeassistant-venv/
+*.pyc
