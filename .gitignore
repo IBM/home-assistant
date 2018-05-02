@@ -1,4 +1,5 @@
 config/.HA_VERSION
+config/home-assistant_v2.db
 config/deps/
 config/home-assistant.log
 config/entity_registry.yaml

@@ -7,12 +7,13 @@ fi
 
 echo "Creating venv at $PWD/homeassistant-venv"
 
-python3 -m venv homeassistant-venv
+python3 -m venv homeassistant-venv &> venv.log
 
 echo "Installing Home Assistant in venv"
 echo ""
 
-homeassistant-venv/bin/pip install -U homeassistant &> venv.log
+./homeassistant-venv/bin/python3 -m pip install -U wheel &>> venv.log
+./homeassistant-venv/bin/python3 -m pip install -U homeassistant &>> venv.log
 
 echo "Home Assistant is now running, use ctrl+c or sending SIGTERM to stop it."
 echo "If you want to start it again just run:"
@@ -21,4 +22,4 @@ echo "./homeassistant-venv/bin/hass --config config"
 echo ""
 echo " from the root of the repo"
 
-./homeassistant-venv/bin/hass --config config --open-ui &> home-assistant.log
+./homeassistant-venv/bin/hass --config ./config --open-ui &> home-assistant.log

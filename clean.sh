@@ -7,3 +7,4 @@ rm -rf config/deps
 rm -f config/.HA_VERSION
 rm -f config/entity_registry.yaml
 rm -f config/home-assistant.log
+rm -f config/home-assistant_v2.db

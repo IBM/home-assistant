@@ -3,6 +3,12 @@ homeassistant:
     unit_system: metric
     time_zone: America/New_York
 
+frontend:
+
+history:
+
+logbook:
+
 http:
     server_host: 0.0.0.0
     base_url: 127.0.0.1:8123
