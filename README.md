@@ -63,7 +63,8 @@ all covered in great depth in the home assistant documentation here:
 
 https://www.home-assistant.io/docs/installation/
 
-This guide will cover 2 methods for doing it for demonstration purposes, running locally in a python virtualenv and in IBM Cloud's Container Service.
+This guide wiill cover 2 methods for doing it for demonstration purposes, running
+locally in a python virtualenv and in IBM Cloud's Container Service.
 While you can use either technique to deploy a production Home Assistant
 instance, this guide will not cover configuring your own devices. It will only
 use the demo devices in the bundled configuration in the repo. Refer to the
@@ -94,7 +95,85 @@ can simply run:
 in a terminal from the root of this repo and it'll remove all artifacts from
 the script.
 
-# 3. Deploy Watson IoT Platform and Configure Home Assistant to Use It
+## 2. Adding a device to Home-Assistant
+
+While the example config contains a few fake devices to showcase how
+home-assistant can be used. There are a lot of devices and services that
+home-assistant supports. You can see a full list of these in the home assistant
+documentation here:
+
+https://www.home-assistant.io/components/
+
+While most of the components there require some additional setup or hardware.
+The [demo platform](https://www.home-assistant.io/components/demo/) devices
+(which is what is already used for the existing config) however don't and are
+used solely to demonstrate how different classes of devices and services
+would be used in Home Assistant. We'll be adding a new demo fan device to Home
+Assistant here, but the basic steps are the same for real devices. You'll just
+have to refer to the documentation for the particular component you're adding
+to your instance for any required setup steps and/or hardware.
+
+To start open up the [config/configuration.yaml](config/configuration.yaml)
+file in your text editor of choice. You should see the following contents:
+```yaml
+homeassistant:
+    name: Watson Demo
+    unit_system: metric
+    time_zone: America/New_York
+
+frontend:
+
+history:
+
+logbook:
+
+http:
+    server_host: 0.0.0.0
+    base_url: 127.0.0.1:8123
+    trusted_networks:
+      - 127.0.0.1
+
+climate:
+    - platform: demo
+      name: House Climate
+
+weather:
+    - platform: demo
+
+light:
+    - name: Hallway Light
+      platform: demo
+    - name: Kitchen Light
+      platform: demo
+
+sensor:
+    - name: Doorbell
+      platform: demo
+
+#watson_iot:
+#    organization: organization_id
+#    type: device_type
+#    id: device_id
+#    token: auth_token
+
+```
+This is the main yaml configuration file for home assistant. It describes both
+information about the instance itself, like where it's physically located and
+the connection information, and also contains which components are being used.
+The lines that start with **#** are commented out. To add the fan devices we
+want to append:
+```yaml
+fan:
+  - platform: demo
+    name: Office Fan
+  - platform: demo
+    name: Kitchen Fan
+```
+to the end of the file. This says we're adding a 2 fan devices to our install,both using the demo fan component. Once you've done this you'll need restart
+the service to take the configuration changes. When you've done this the
+dashboard will now show the 2 fan devices.
+
+## 3. Deploy Watson IoT Platform
 > Watson IoT Platform provides powerful application access to IoT devices and
 data to help you rapidly compose analytics applications, visualization
 dashboards, and mobile IoT apps. The steps that follow will deploy an instance
@@ -144,7 +223,7 @@ For $IOT_PLATFORM_NAME, you can anthing, but for this guild we'll use
 
   bx create-service iotf-service iotf-service-free iotp-for-home-assistant
 
-4. Register Home-Assistant with Watson IoT Platform.
+## 4. Register Home-Assistant with Watson IoT Platform.
 For more information about registering devices, see:
 [Connecting devices](https://console.bluemix.net/docs/services/IoT/iotplatform_task.html#iotplatform_subtask1).
   * In the IBM console, click **Launch** other Watson IoT Platform service
@@ -179,11 +258,13 @@ For more information about registering devices, see:
         ID, Device Type, Device ID, and Authentication Token to configure your
         device to connect to Watson IoT Platform.
 
-5. Configure Home Assistant
+## 5. Configure Home Assistant to use Watso IoT Platform
 Now that you've registered the device type and device in your Watson IoT
-platform instance it's time to configure Home Assistant to use it. In the sample
-home-assistant config in this repo at config/configuration.yaml you'll see the
-outline for this already, just commented out:
+platform instance it's time to configure Home Assistant to use it. We'll
+need to add the configuration for the Watson IoT Platform [custom component](config/custom_components/watson_iot.py)
+to our Home Assistant configuration.yaml file
+In the included [Home Assistant config](config/configuration.yaml)
+you'll see the outline for this already, just commented out:
 ```yaml
     watson_iot:
         organization: organization_id
