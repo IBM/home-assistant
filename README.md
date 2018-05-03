@@ -1,15 +1,58 @@
 # Connect your Home Automation system to Watson IoT Platform
 
-
+People often have a variety of connected or smart different devices in their
+homes. These different devices don't always share common protocols or
+interfaces. This makes building workflows or automation between devices more
+difficult. It also means that you often have to interact with several diffent
+interfaces to use the devices.
 
 This is where the [Home Assistant](https://www.home-assistant.io/) project
 comes into play. Home assistant is open source home automation project. It's
 designed to be platform agnostic hub for all the different devices you may have
 in your home (or anywhere really) and provide a unified interface for
-interacting with all of those devices.
+interacting with all of those devices, and common method for building automation
+between all the devices.
 
+The Watson IoT Platform provides powerful application access to IoT devices and
+data to help you rapidly compose analytics applications, visualization
+dashboards, and mobile IoT apps. This code pattern will describe the process of
+linking the two together. Enabling you to leverage Home Assistant for connecting
+all your different devices together behind a shared interface, and then using
+the Watson IoT Platform to aggregate the data from those devices and enable
+running analytics on top.
 
-## Setup Home Assistant
+When the reader has completed this Code Pattern, they will understand how to:
+
+* Setup and Run Home Assistant
+* Create an instance of the Watson IoT platform
+* Add devices to the Watson IoT Platform
+* Have Home Assistant report device metrics to the Watson IoT Platform
+
+## Flow
+1. Setting up a home-assistant instance
+2. Adding Devices to your home-assistant instance
+3. Create a Watson IoT Platform instance
+4. Add a Device Type and Device for Home-Assistant to your Watson IoT Platform
+   Instance
+5. Configure Home-Assistant to report device metrics to your Watson IoT Platform
+   instance
+
+## Included components
+* [Watson IoT Platform](https://www.ibm.com/internet-of-things/spotlight/watson-iot-platform):
+  enables organizations to transform with IoT with
+  built-in security, and cognitive and industry expertise
+* [Home Assistantt](https://www.home-assistant.io/): an open-source home
+  automation platform running on Python 3. Track and control all devices at
+  home and automate control. Perfect to run on a Raspberry Pi.
+
+## Featured technologies
+* [IoT](https://www.ibm.com/cloud-computing/bluemix/internet-of-things): The
+  inter-networking of large volumes of physical devices, enabling them to
+  collect and exchange data.
+
+# Steps
+
+## 1. Setup Home Assistant
 
 To start we'll need to setup home assistant. The concept behind the project is
 that you run home assistant where the devices you want to connect are, in the
@@ -51,7 +94,7 @@ can simply run:
 in a terminal from the root of this repo and it'll remove all artifacts from
 the script.
 
-## Deploy Watson IoT Platform and Configure Home Assistant to Use It
+# 3. Deploy Watson IoT Platform and Configure Home Assistant to Use It
 > Watson IoT Platform provides powerful application access to IoT devices and
 data to help you rapidly compose analytics applications, visualization
 dashboards, and mobile IoT apps. The steps that follow will deploy an instance
@@ -153,3 +196,15 @@ step into each of these values. By doing this you'll be enabling Home Assistant
 to report device status for every device it is configured to control or monitor.
 After updating the configuration you'll want to restart the home-assistant
 service however you've configured it to run.
+
+# Learn more
+* **With Watson**: Want to take your Watson app to the next level? Looking to
+utilize Watson Brand assets? [Join the With Watson program](https://www.ibm.com/watson/with-watson/)
+to leverage exclusive brand, marketing, and tech resources to amplify and
+accelerate your Watson embedded commercial solution.
+
+# Links
+* [Home Assistant Documentation](https://www.home-assistant.io/docs/)
+* [Watson IoT Platform](https://www.ibm.com/internet-of-things/spotlight/watson-iot-platform)
+# License
+[Apache 2.0](LICENSE)
