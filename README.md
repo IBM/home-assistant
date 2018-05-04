@@ -49,6 +49,8 @@ When the reader has completed this Code Pattern, they will understand how to:
 * [IoT](https://www.ibm.com/cloud-computing/bluemix/internet-of-things): The
   inter-networking of large volumes of physical devices, enabling them to
   collect and exchange data.
+* [Python](https://www.python.org/): Python is a programming language that lets
+  you work more quickly and integrate your systems more effectively.
 
 # Steps
 
@@ -165,13 +167,11 @@ want to append:
 ```yaml
 fan:
   - platform: demo
-    name: Office Fan
-  - platform: demo
-    name: Kitchen Fan
 ```
-to the end of the file. This says we're adding a 2 fan devices to our install,both using the demo fan component. Once you've done this you'll need restart
-the service to take the configuration changes. When you've done this the
-dashboard will now show the 2 fan devices.
+to the end of the file. This says we're adding a single fan devices to our
+Home Assistant installation, using the demo fan component. Once you've done this
+you'll need restart the service to take the configuration changes. When you've
+done this the dashboard will now show the 2 fan devices.
 
 ## 3. Deploy Watson IoT Platform
 > Watson IoT Platform provides powerful application access to IoT devices and
