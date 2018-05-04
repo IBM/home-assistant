@@ -3,7 +3,7 @@
 People often have a variety of connected or smart different devices in their
 homes. These different devices don't always share common protocols or
 interfaces. This makes building workflows or automation between devices more
-difficult. It also means that you often have to interact with several diffent
+difficult. It also means that you often have to interact with several different
 interfaces to use the devices.
 
 This is where the [Home Assistant](https://www.home-assistant.io/) project
@@ -38,10 +38,10 @@ When the reader has completed this Code Pattern, they will understand how to:
    instance
 
 ## Included components
-* [Internet of Things Platform](https://console.bluemix.net/catalog/services/internet-of-things-platform):
-  Connect your device, send data to our cloud, set up and manage your devices,
-  and use APIs to connect apps to your device data.
-* [Home Assistantt](https://www.home-assistant.io/): an open-source home
+* [Watson IoT Platform](https://www.ibm.com/internet-of-things/spotlight/watson-iot-platform):
+  enables organizations to transform with IoT with
+  built-in security, and cognitive and industry expertise
+* [Home Assistant](https://www.home-assistant.io/): an open-source home
   automation platform running on Python 3. Track and control all devices at
   home and automate control. Perfect to run on a Raspberry Pi.
 
@@ -56,12 +56,12 @@ When the reader has completed this Code Pattern, they will understand how to:
 
 ## 1. Setup Home Assistant
 
-To start we'll need to setup home assistant. The concept behind the project is
-that you run home assistant where the devices you want to connect are, in the
+To start we'll need to setup Home assistant. The concept behind the project is
+that you run Home assistant where the devices you want to connect are, in the
 common case this is in your house.
 
-There are several different ways to install and run home assistant. These are
-all covered in great depth in the home assistant documentation here:
+There are several different ways to install and run Home assistant. These are
+all covered in great depth in the Home assistant documentation here:
 
 https://www.home-assistant.io/docs/installation/
 
@@ -70,12 +70,12 @@ locally in a python virtualenv and in IBM Cloud's Container Service.
 While you can use either technique to deploy a production Home Assistant
 instance, this guide will not cover configuring your own devices. It will only
 use the demo devices in the bundled configuration in the repo. Refer to the
-[home assistant documentation](ihttps://www.home-assistant.io/docs/configuration/)
+[Home Assistant documentation](https://www.home-assistant.io/docs/configuration/)
 for how you want to configure it for your environment.
 
 ### Local setup
 
-To setup a locally running home assistant in avirtual environment you'll need
+To setup a locally running home assistant in a virtual environment you'll need
 to setup a few prerequisites first. You'll have to have a python 3 environment
 installed already with a version >= 3.5 and pip must already be setup. Once
 this is done you can simply run:
@@ -86,7 +86,7 @@ this is done you can simply run:
 in a terminal from the root of this repo. It'll create a
 [virtualenv](https://docs.python.org/3/tutorial/venv.html) for Home Assistant
 copy the demo configuration into and start it for you. You can kill the script
-in your terminal to stop home assistant at any time, and the script will print
+in your terminal to stop Home Assistant at any time, and the script will print
 the command you'll need to restart it if you stopped it for any reason.
 
 If after using the script you want to remove everything for some reason you
@@ -100,8 +100,8 @@ the script.
 ## 2. Adding a device to Home-Assistant
 
 While the example config contains a few fake devices to showcase how
-home-assistant can be used. There are a lot of devices and services that
-home-assistant supports. You can see a full list of these in the home assistant
+Home-Assistant can be used. There are a lot of devices and services that
+Home-Assistant supports. You can see a full list of these in the Home Assistant
 documentation here:
 
 https://www.home-assistant.io/components/
@@ -159,7 +159,7 @@ sensor:
 #    token: auth_token
 
 ```
-This is the main yaml configuration file for home assistant. It describes both
+This is the main yaml configuration file for Home Assistant. It describes both
 information about the instance itself, like where it's physically located and
 the connection information, and also contains which components are being used.
 The lines that start with **#** are commented out. To add the fan devices we
@@ -218,7 +218,7 @@ a) org: matthew.treinish@us.ibm.com  b) space = dev
 bx create-service iotf-service iotf-service-free $IOT_PLATFORM_NAME
 ```
 
-For $IOT_PLATFORM_NAME, you can anthing, but for this guild we'll use
+For `$IOT_PLATFORM_NAME`, you can put anything, but for this guild we'll use
 *iotp-for-home-assistant*. For example::
 
   bx create-service iotf-service iotf-service-free iotp-for-home-assistant
@@ -227,12 +227,12 @@ For $IOT_PLATFORM_NAME, you can anthing, but for this guild we'll use
 For more information about registering devices, see:
 [Connecting devices](https://console.bluemix.net/docs/services/IoT/iotplatform_task.html#iotplatform_subtask1).
   * In the IBM console, click **Launch** other Watson IoT Platform service
-    details page.The Watson IoT Platform web console opens in a new browser tab
+    details page. The Watson IoT Platform web console opens in a new browser tab
     at the following URL:
 
     https://ORG_ID.internetofthings.ibmcloud.com/dashboard/#/overview
 
-    Where ORG_ID is the unique six character ID of [your Watson IoT Platform
+    Where `ORG_ID` is the unique six character ID of [your Watson IoT Platform
     [organization](https://console.bluemix.net/docs/services/IoT/iotplatform_overview.html#organizations).
   * In the Overview dashboard, from the menu pane, select **Devices** and then
     click **Add Device**.
@@ -275,7 +275,7 @@ you'll see the outline for this already, just commented out:
 You'll want to uncomment this and copy the details you saved from the previous
 step into each of these values. By doing this you'll be enabling Home Assistant
 to report device status for every device it is configured to control or monitor.
-After updating the configuration you'll want to restart the home-assistant
+After updating the configuration you'll want to restart the Home-Assistant
 service however you've configured it to run.
 
 # Learn more
