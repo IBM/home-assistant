@@ -38,9 +38,9 @@ When the reader has completed this Code Pattern, they will understand how to:
    instance
 
 ## Included components
-* [Watson IoT Platform](https://www.ibm.com/internet-of-things/spotlight/watson-iot-platform):
-  enables organizations to transform with IoT with
-  built-in security, and cognitive and industry expertise
+* [Internet of Things Platform](https://console.bluemix.net/catalog/services/internet-of-things-platform):
+  Connect your device, send data to our cloud, set up and manage your devices,
+  and use APIs to connect apps to your device data.
 * [Home Assistantt](https://www.home-assistant.io/): an open-source home
   automation platform running on Python 3. Track and control all devices at
   home and automate control. Perfect to run on a Raspberry Pi.
