@@ -28,6 +28,8 @@ When the reader has completed this Code Pattern, they will understand how to:
 * Add devices to the Watson IoT Platform
 * Have Home Assistant report device metrics to the Watson IoT Platform
 
+![](doc/source/images/architecture.png)
+
 ## Flow
 1. Setting up a home-assistant instance
 2. Adding Devices to your home-assistant instance
