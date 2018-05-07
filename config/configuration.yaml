@@ -32,12 +32,6 @@ sensor:
     - name: Doorbell
       platform: demo
 
-fan:
-  - platform: demo
-    name: Office Fan
-  - platform: demo
-    name: Kitchen Fan
-
 #watson_iot:
 #    organization: organization_id
 #    type: device_type
