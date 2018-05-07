@@ -240,6 +240,7 @@ For more information about registering devices, see:
     click **Add Device**.
   * Create a device type for the device that you are adding.
       - Click **Create device type**.
+      - Select **Gateway** as Type
       - Enter the device type name, this can be anything, but you want it to be
         descriptive. For example `iotp-home-assistant` and a description for
         the device type.
@@ -279,6 +280,16 @@ step into each of these values. By doing this you'll be enabling Home Assistant
 to report device status for every device it is configured to control or monitor.
 After updating the configuration you'll want to restart the Home-Assistant
 service however you've configured it to run.
+
+After restarting Home-Assistant it will be running as a gateway device for the
+Watson IoT Platform. As events occur in Home-Assistant it will send those
+updates to the IoT Platform. If the event is for a device that the IoT Platform
+isn't tracking yet it will be added. You can trigger these events by interacting
+with the Home-Assistant web UI. Once a device is added you can track it's state
+in the IoT Platform, for example:
+
+[](doc/source/images/autoadded-devices.png)
+
 
 # Learn more
 * **With Watson**: Want to take your Watson app to the next level? Looking to
