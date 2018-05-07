@@ -17,6 +17,7 @@
 rm -rf homeassistant-venv
 rm -f home-assistant.log
 rm -f venv.log
+rm -f *.log
 rm -rf config/deps
 rm -f config/.HA_VERSION
 rm -f config/entity_registry.yaml

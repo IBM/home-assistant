@@ -288,7 +288,7 @@ isn't tracking yet it will be added. You can trigger these events by interacting
 with the Home-Assistant web UI. Once a device is added you can track it's state
 in the IoT Platform, for example:
 
-[](doc/source/images/autoadded-devices.png)
+![](doc/source/images/autoadded-devices.png)
 
 
 # Learn more
