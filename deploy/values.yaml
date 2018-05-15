@@ -1,0 +1,29 @@
+# Default values for deploy.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+hass:
+  image:
+    name: hass
+    version: 1
+  storage:
+    size: 10Gi
+    class: "ibmc-file-silver"
+
+service:
+  type: http
+  port: 8123
+
+watson_iot:
+  enabled: 0
+#  organization: "org_id"
+#  type: "device type"
+#  id: "device id"
+#  token: "auth token"
+
+image:
+  repository: registry.ng.bluemix.net/hass
+  tag: 1
+  pullPolicy: Always

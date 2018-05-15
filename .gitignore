@@ -3,6 +3,12 @@ config/home-assistant_v2.db
 config/deps/
 config/home-assistant.log
 config/entity_registry.yaml
+images/hass/config/.HA_VERSION
+images/hass/config/home-assistant_v2.db
+images/hass/config/deps/
+images/hass/config/home-assistant.log
+images/hass/config/entity_registry.yaml
+
 *.log
 homeassistant-venv/
 *.pyc

@@ -31,8 +31,8 @@ echo ""
 echo "Home Assistant is now running, use ctrl+c or sending SIGTERM to stop it."
 echo "If you want to start it again just run:"
 echo ""
-echo "./homeassistant-venv/bin/hass --config config"
+echo "./homeassistant-venv/bin/hass --config images/hass/config"
 echo ""
 echo " from the root of the repo"
 
-./homeassistant-venv/bin/hass --config ./config --open-ui &> home-assistant.log
+./homeassistant-venv/bin/hass --config ./images/hass/config --open-ui &> home-assistant.log

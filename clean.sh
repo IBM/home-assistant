@@ -18,8 +18,8 @@ rm -rf homeassistant-venv
 rm -f home-assistant.log
 rm -f venv.log
 rm -f *.log
-rm -rf config/deps
-rm -f config/.HA_VERSION
-rm -f config/entity_registry.yaml
-rm -f config/home-assistant.log
-rm -f config/home-assistant_v2.db
+rm -rf images/hass/config/deps
+rm -f images/hass/config/.HA_VERSION
+rm -f images/hass/config/entity_registry.yaml
+rm -f images/hass/config/home-assistant.log
+rm -f images/hass/config/home-assistant_v2.db

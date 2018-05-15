@@ -117,7 +117,7 @@ Assistant here, but the basic steps are the same for real devices. You'll just
 have to refer to the documentation for the particular component you're adding
 to your instance for any required setup steps and/or hardware.
 
-To start open up the [config/configuration.yaml](config/configuration.yaml)
+To start open up the [images/hass/config/configuration.yaml](images/hass/config/configuration.yaml)
 file in your text editor of choice. You should see the following contents:
 ```yaml
 homeassistant:
@@ -264,9 +264,9 @@ For more information about registering devices, see:
 ## 5. Configure Home Assistant to use Watso IoT Platform
 Now that you've registered the device type and device in your Watson IoT
 platform instance it's time to configure Home Assistant to use it. We'll
-need to add the configuration for the Watson IoT Platform [custom component](config/custom_components/watson_iot_platform.py)
+need to add the configuration for the Watson IoT Platform [custom component](images/hass/config/custom_components/watson_iot_platform.py)
 to our Home Assistant configuration.yaml file
-In the included [Home Assistant config](config/configuration.yaml)
+In the included [Home Assistant config](images/hass/config/configuration.yaml)
 you'll see the outline for this already, just commented out:
 ```yaml
     watson_iot_platform:
