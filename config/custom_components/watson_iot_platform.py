@@ -15,9 +15,6 @@
 
 """
 A component which allows you to send data to the IBM Watson IoT Platform.
-
-For more details about this component, please refer to the documentation at
-https://home-assistant.io/components/watson_iot/
 """
 
 import logging
@@ -41,7 +38,7 @@ _LOGGER = logging.getLogger(__name__)
 CONF_ORG = 'organization'
 CONF_ID = 'id'
 
-DOMAIN = 'watson_iot'
+DOMAIN = 'watson_iot_platform'
 
 RETRY_DELAY = 20
 

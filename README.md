@@ -154,7 +154,7 @@ sensor:
     - name: Doorbell
       platform: demo
 
-#watson_iot:
+#watson_iot_platform:
 #    organization: organization_id
 #    type: device_type
 #    id: device_id
@@ -264,12 +264,12 @@ For more information about registering devices, see:
 ## 5. Configure Home Assistant to use Watso IoT Platform
 Now that you've registered the device type and device in your Watson IoT
 platform instance it's time to configure Home Assistant to use it. We'll
-need to add the configuration for the Watson IoT Platform [custom component](config/custom_components/watson_iot.py)
+need to add the configuration for the Watson IoT Platform [custom component](config/custom_components/watson_iot_platform.py)
 to our Home Assistant configuration.yaml file
 In the included [Home Assistant config](config/configuration.yaml)
 you'll see the outline for this already, just commented out:
 ```yaml
-    watson_iot:
+    watson_iot_platform:
         organization: organization_id
         type: device_type
         id: device_id
