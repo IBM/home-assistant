@@ -91,6 +91,17 @@ copy the demo configuration into and start it for you. You can kill the script
 in your terminal to stop Home Assistant at any time, and the script will print
 the command you'll need to restart it if you stopped it for any reason.
 
+If you have a web browser on the machine you're running this from it will open
+the Home Assistant web UI in your browser. For example:
+
+![](doc/source/images/hass_ui.png)
+
+If you don't have a browser on the machine you can access the web UI on port
+8123. It is also a mobile friendly interface, so you can access the web UI
+from your mobile device. For example:
+
+![](doc/source/images/hass_mobile.png)
+
 If after using the script you want to remove everything for some reason you
 can simply run:
 ```
