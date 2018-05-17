@@ -110,6 +110,67 @@ can simply run:
 in a terminal from the root of this repo and it'll remove all artifacts from
 the script.
 
+### Running in IBM Cloud Kubernetes Service
+
+If you don't want to run Home Assistant on a local machine for whatever reason,
+for this you can also run it in the cloud. While most of the examples from this
+repository will work fine when running Home Assistant in the cloud, it's worth
+pointing out that for many Home Assistant components it is expected that they
+have local access to a device. This is often incompatible with cloud deployment,
+so if you choose this path, it may not be characteristic of how you would actual
+deploy Home Assistant in a real usecase. Especially when you consider that
+Home Assistant is designed to always work on a Raspberry Pi 3, the cost for
+running locally is quite low.
+
+To run this on the cloud you'll first need to have Kubernetes Helm installed.
+Full instructions on installing it can be found at
+[docs.helm.sh](https://docs.helm.sh/using_helm/#installing-helm)
+
+After you have helm installed you'll need to create a kubernetes cluster. To
+do this on IBM Cloud you run:
+```
+$ bx cs cluster-create <clustername>
+```
+Where <clustername> is the name of your cluster. We will use `hass` for this
+from this point on. After your cluster is running you need to configure
+kubectl for it. You do that with:
+
+```
+$ $(bx cs cluster-config hass | grep export)
+```
+and then initialize helm in your cluster with:
+```
+$ helm init
+```
+From here we need to configure a container registry where we'll upload the
+Home Assistant docker image. To do this we need to create a namespace for this
+application with:
+```
+$ bx cr namespace-add hass
+```
+Then we need to build the docker image and add it to the container registry in
+the newly created namespace. You can do this from the root of the repo with:
+```
+$ bx cr build -t registry.ng.bluemix.net/hass/hass:1 images/hass
+```
+After image is built and uploaded it's time to deploy home assistant using helm.
+This can be done by running from the root of the repo:
+```
+$ helm install deploy
+```
+This will autogenerate a unique name such as incendiary-gibbon. Helm allows you
+to have more than one version of an application running at the same time in the
+same cluster for developent, qa, or A/B testing purposes.
+
+You can see the status of deployment with:
+```
+$ helm status <incendiary-gibbon>
+```
+Once the deployment is finished you'll be able to access the Home Assistant
+web UI at the `EXTERNAL-IP` listed on the helm status page under the v1/Service
+section. Just go to that address on port 8123 in your browser and you'll have
+access to the Web UI
+
 ## 2. Adding a device to Home-Assistant
 
 While the example config contains a few fake devices to showcase how
@@ -127,6 +188,8 @@ would be used in Home Assistant. We'll be adding a new demo fan device to Home
 Assistant here, but the basic steps are the same for real devices. You'll just
 have to refer to the documentation for the particular component you're adding
 to your instance for any required setup steps and/or hardware.
+
+### Local Setup
 
 To start open up the [images/hass/config/configuration.yaml](images/hass/config/configuration.yaml)
 file in your text editor of choice. You should see the following contents:
@@ -185,6 +248,33 @@ to the end of the file. This says we're adding a single fan devices to our
 Home Assistant installation, using the demo fan component. Once you've done this
 you'll need restart the service to take the configuration changes. When you've
 done this the dashboard will now show the 2 fan devices.
+
+### Running in IBM Cloud Kubernetes Service
+
+If you chose to run Home Assistant in the cloud this step can be skipped. To
+manually add devices, it will require rebuilding the
+[docker image](images/hass) used to run Home Assistant with an updated config
+and then upgrading the helm deployment. This is a bit more involved then the
+local steps. But, if you choose to do this the procedure is as follows:
+
+Update the config in
+[images/hass/config/configuration.yaml](images/hass/config/configuration.yaml)
+just like in the local setup steps. Then you'll need to build a new version of
+the image and upload it to your image registry. This can be done by running
+from the repo root:
+```
+$ bx cr build -t registry.ng.bluemix.net/hass/hass:2 images/hass
+```
+You'll notice we've incremented the version number for the image. Once that
+finishes you'll want to upgrade the deployment with helm. First you'll need
+to edit [deploy/values.yaml](deploy/values.yaml) and change the `tag` field
+under image from `1` to `2`. After you've updated the values.yaml you can
+upgrade your deployment by running from the root of the repo:
+```
+$ helm upgrade <incendiary-gibbon> deploy
+```
+This will deploy upgrade the Home Assistant deployment with the new
+configuration.
 
 ## 3. Deploy Watson IoT Platform
 > Watson IoT Platform provides powerful application access to IoT devices and
@@ -277,6 +367,9 @@ Now that you've registered the device type and device in your Watson IoT
 platform instance it's time to configure Home Assistant to use it. We'll
 need to add the configuration for the Watson IoT Platform [custom component](images/hass/config/custom_components/watson_iot_platform.py)
 to our Home Assistant configuration.yaml file
+
+### Local Setup
+
 In the included [Home Assistant config](images/hass/config/configuration.yaml)
 you'll see the outline for this already, just commented out:
 ```yaml
@@ -300,6 +393,32 @@ with the Home-Assistant web UI. Once a device is added you can track it's state
 in the IoT Platform, for example:
 
 ![](doc/source/images/autoadded-devices.png)
+
+### Running in IBM Cloud Kubernetes Service
+Support for upgrading your cloud deployed Home Assistant with the Watson IoT
+Platform configuration is prebuilt into the Docker images used. So unlike in
+step 2 you do not need to rebuild the images manually to add the component.
+This can be done by instead passing the Watson IoT Platform connection
+information directly to helm. To do this you'll need to create a new yaml file.
+This can live anywhere, but for the purposes of this demo we'll create a
+values.yaml in the root of the repo (which is ignored by git). The contents
+of this file are very similar to the Home Assistant configuration::
+```yaml
+watson_iot:
+  enabled: 1
+  organization: "organization_id"
+  type: "device_type"
+  id: "device_id"
+  token: "auth_token"
+```
+where the values for organization, type, id, and token come from the details
+you saved from the previous step. After creating this file we'll need to
+upgrade the deployment with helm again. From the root of the repo run:
+
+```
+$ helm upgrade --values values.yaml <incendiary-gibbon> deploy
+```
+This will upgrade the deployment with the Watson IoT Platform support enabled.
 
 
 # Learn more
