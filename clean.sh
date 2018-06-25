@@ -17,6 +17,7 @@
 rm -rf homeassistant-venv
 rm -f home-assistant.log
 rm -f venv.log
+rm -f hass-install.log
 rm -f *.log
 rm -rf images/hass/config/deps
 rm -f images/hass/config/.HA_VERSION

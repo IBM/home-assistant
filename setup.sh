@@ -25,8 +25,7 @@ python3 -m venv homeassistant-venv &> venv.log
 echo "Installing Home Assistant in venv"
 echo ""
 
-./homeassistant-venv/bin/python3 -m pip install -U wheel &>> venv.log
-./homeassistant-venv/bin/python3 -m pip install -U homeassistant &>> venv.log
+./homeassistant-venv/bin/python3 -m pip install -U wheel homeassistant &> hass-install.log
 
 echo "Home Assistant is now running, use ctrl+c or sending SIGTERM to stop it."
 echo "If you want to start it again just run:"
