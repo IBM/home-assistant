@@ -1,58 +1,9 @@
 # Connect your Home Automation system to Watson IoT Platform
 
-People often have a variety of connected or smart different devices in their
-homes. These different devices don't always share common protocols or
-interfaces. This makes building workflows or automation between devices more
-difficult. It also means that you often have to interact with several different
-interfaces to use the devices.
-
-This is where the [Home Assistant](https://www.home-assistant.io/) project
-comes into play. Home assistant is open source home automation project. It's
-designed to be platform agnostic hub for all the different devices you may have
-in your home (or anywhere really) and provide a unified interface for
-interacting with all of those devices, and common method for building automation
-between all the devices.
-
-The Watson IoT Platform provides powerful application access to IoT devices and
-data to help you rapidly compose analytics applications, visualization
-dashboards, and mobile IoT apps. This code pattern will describe the process of
-linking the two together. Enabling you to leverage Home Assistant for connecting
-all your different devices together behind a shared interface, and then using
-the Watson IoT Platform to aggregate the data from those devices and enable
-running analytics on top.
-
-When the reader has completed this Code Pattern, they will understand how to:
-
-* Setup and Run Home Assistant
-* Create an instance of the Watson IoT platform
-* Add devices to the Watson IoT Platform
-* Have Home Assistant report device metrics to the Watson IoT Platform
+Learn how to use Home-Assistant and Watson IoT Platform to build a unified interface to a home automation system.
 
 ![](doc/source/images/architecture.png)
 
-## Flow
-1. Setting up a home-assistant instance
-2. Adding Devices to your home-assistant instance
-3. Create a Watson IoT Platform instance
-4. Add a Device Type and Device for Home-Assistant to your Watson IoT Platform
-   Instance
-5. Configure Home-Assistant to report device metrics to your Watson IoT Platform
-   instance
-
-## Included components
-* [Watson IoT Platform](https://www.ibm.com/internet-of-things/spotlight/watson-iot-platform):
-  enables organizations to transform with IoT with
-  built-in security, and cognitive and industry expertise
-* [Home Assistant](https://www.home-assistant.io/): an open-source home
-  automation platform running on Python 3. Track and control all devices at
-  home and automate control. Perfect to run on a Raspberry Pi.
-
-## Featured technologies
-* [IoT](https://www.ibm.com/cloud-computing/bluemix/internet-of-things): The
-  inter-networking of large volumes of physical devices, enabling them to
-  collect and exchange data.
-* [Python](https://www.python.org/): Python is a programming language that lets
-  you work more quickly and integrate your systems more effectively.
 
 # Steps
 
@@ -420,15 +371,5 @@ $ helm upgrade --values values.yaml <incendiary-gibbon> deploy
 ```
 This will upgrade the deployment with the Watson IoT Platform support enabled.
 
-
-# Learn more
-* **With Watson**: Want to take your Watson app to the next level? Looking to
-utilize Watson Brand assets? [Join the With Watson program](https://www.ibm.com/watson/with-watson/)
-to leverage exclusive brand, marketing, and tech resources to amplify and
-accelerate your Watson embedded commercial solution.
-
-# Links
-* [Home Assistant Documentation](https://www.home-assistant.io/docs/)
-* [Watson IoT Platform](https://www.ibm.com/internet-of-things/spotlight/watson-iot-platform)
 # License
 [Apache 2.0](LICENSE)
