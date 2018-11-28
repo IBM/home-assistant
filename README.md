@@ -372,4 +372,6 @@ $ helm upgrade --values values.yaml <incendiary-gibbon> deploy
 This will upgrade the deployment with the Watson IoT Platform support enabled.
 
 # License
-[Apache 2.0](LICENSE)
+This code pattern is licensed under the Apache Software License, Version 2. Separate third party code objects invoked within this code pattern are licensed by their respective providers pursuant to their own separate licenses. Contributions are subject to the Developer [Certificate of Origin, Version 1.1 (“DCO”)] (https://developercertificate.org/) and the [Apache Software License, Version 2]( (http://www.apache.org/licenses/LICENSE-2.0.txt).
+
+ASL FAQ link: http://www.apache.org/foundation/license-faq.html#WhatDoesItMEAN
