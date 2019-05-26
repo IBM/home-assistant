@@ -1,3 +1,7 @@
+# WARNING: This repository is no longer maintained :warning:
+
+> This repository will not be updated. The repository will be kept available in read-only mode.
+
 # Connect your Home Automation system to Watson IoT Platform
 
 Learn how to use Home-Assistant and Watson IoT Platform to build a unified interface to a home automation system.
